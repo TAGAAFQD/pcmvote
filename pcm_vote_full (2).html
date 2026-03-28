@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>নির্বাচন ২০২৬ — প্রাক্তন ছাত্র কল্যাণ পরিষদ</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #1a6b3c;
+    --gold: #c9a84c;
+    --cream: #faf6ef;
+    --dark: #0f2318;
+    --mid: #2d5a3d;
+    --light-green: #e8f5ee;
+    --red: #c0392b;
+    --blue: #2471a3;
+    --purple: #7d3c98;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Noto Sans Bengali', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0 50px 0;
+  }
+
+  /* Banner */
+  .banner {
+    width: 100%;
+    background: linear-gradient(160deg, #0a1f10 0%, #1a6b3c 55%, #2d5a3d 100%);
+    padding: 30px 20px 25px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .banner::before {
+    content: '';
+    position: absolute;
+    top: -40px; left: -40px;
+    width: 150px; height: 150px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.1);
+  }
+  .banner::after {
+    content: '';
+    position: absolute;
+    bottom: -30px; right: -30px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.08);
+  }
+  .school-name {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.78rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .org-name {
+    font-family: 'Tiro Bangla', serif;
+    color: var(--gold);
+    font-size: 1.3rem;
+    line-height: 1.45;
+    margin-bottom: 8px;
+  }
+  .election-title {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .banner-icon { font-size: 2rem; margin-bottom: 8px; display: block; }
+  .badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--dark);
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.8px;
+  }
+
+  /* Card */
+  .card {
+    background: #fff;
+    width: 93%;
+    max-width: 500px;
+    border-radius: 16px;
+    margin-top: -12px;
+    box-shadow: 0 4px 28px rgba(15,35,24,0.13);
+    overflow: hidden;
+    animation: slideUp 0.5s ease;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card-top {
+    background: var(--light-green);
+    border-bottom: 3px solid var(--gold);
+    padding: 15px 20px;
+  }
+  .card-top h2 { font-size: 0.95rem; color: var(--dark); font-weight: 700; }
+  .card-top p { font-size: 0.76rem; color: #556; margin-top: 4px; line-height: 1.5; }
+
+  .required-note {
+    font-size: 0.71rem;
+    color: var(--red);
+    padding: 7px 20px;
+    background: #fff5f5;
+    border-left: 3px solid var(--red);
+  }
+
+  /* Voter Info */
+  .section { padding: 16px 20px; border-bottom: 1px solid #eee; }
+  .section-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .field { margin-bottom: 12px; }
+  .field label { display: block; font-size: 0.83rem; color: var(--dark); font-weight: 600; margin-bottom: 5px; }
+  .field label .req { color: var(--red); margin-left: 2px; }
+  .field input {
+    width: 100%;
+    padding: 10px 13px;
+    border: 1.5px solid #d0d8d4;
+    border-radius: 8px;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: 0.88rem;
+    color: var(--dark);
+    background: #f9fafb;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .field input:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(26,107,60,0.1);
+    background: #fff;
+  }
+
+  /* Position Section */
+  .position-section {
+    padding: 16px 20px;
+    border-bottom: 1px solid #eee;
+  }
+  .position-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+  .position-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .pos-1 { background: #fef9e7; }
+  .pos-2 { background: #eaf2ff; }
+  .pos-3 { background: #f5eef8; }
+
+  .position-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--dark);
+  }
+  .position-sub {
+    font-size: 0.72rem;
+    color: #778;
+    margin-bottom: 12px;
+    margin-left: 42px;
+  }
+
+  /* Candidate Options */
+  .candidate-option { position: relative; margin-bottom: 9px; }
+  .candidate-option input[type="radio"] { position: absolute; opacity: 0; width: 0; }
+  .candidate-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    border: 2px solid #dde8e2;
+    border-radius: 11px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: #f9fafb;
+  }
+  .candidate-option input[type="radio"]:checked + .candidate-label {
+    border-color: var(--green);
+    background: var(--light-green);
+    box-shadow: 0 2px 10px rgba(26,107,60,0.12);
+  }
+  .pos-2-section .candidate-option input[type="radio"]:checked + .candidate-label {
+    border-color: var(--blue);
+    background: #eaf2ff;
+    box-shadow: 0 2px 10px rgba(36,113,163,0.12);
+  }
+  .pos-3-section .candidate-option input[type="radio"]:checked + .candidate-label {
+    border-color: var(--purple);
+    background: #f5eef8;
+    box-shadow: 0 2px 10px rgba(125,60,152,0.12);
+  }
+
+  .radio-circle {
+    width: 19px; height: 19px;
+    border-radius: 50%;
+    border: 2px solid #bbc;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .candidate-option input[type="radio"]:checked + .candidate-label .radio-circle {
+    border-color: var(--green);
+    background: var(--green);
+  }
+  .pos-2-section .candidate-option input[type="radio"]:checked + .candidate-label .radio-circle {
+    border-color: var(--blue);
+    background: var(--blue);
+  }
+  .pos-3-section .candidate-option input[type="radio"]:checked + .candidate-label .radio-circle {
+    border-color: var(--purple);
+    background: var(--purple);
+  }
+  .radio-circle::after {
+    content: '';
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .candidate-option input[type="radio"]:checked + .candidate-label .radio-circle::after { opacity: 1; }
+
+  .candidate-avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+  }
+  .av-green { background: var(--green); }
+  .av-blue { background: var(--blue); }
+  .av-purple { background: var(--purple); }
+  .av-red { background: var(--red); }
+  .av-teal { background: #17a589; }
+  .av-orange { background: #d35400; }
+  .av-navy { background: #1a5276; }
+  .av-maroon { background: #7b241c; }
+  .av-dark { background: #2c3e50; }
+
+  .candidate-info .name { font-weight: 700; font-size: 0.88rem; color: var(--dark); }
+  .candidate-info .detail { font-size: 0.7rem; color: #778; margin-top: 1px; }
+  .candidate-num {
+    margin-left: auto;
+    font-size: 0.68rem;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .num-green { background: #d5f0e0; color: var(--green); }
+  .num-blue { background: #d6eaf8; color: var(--blue); }
+  .num-purple { background: #e8daef; color: var(--purple); }
+
+  /* Submit */
+  .submit-section { padding: 20px; }
+  .submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--green), var(--mid));
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 15px rgba(26,107,60,0.3);
+  }
+  .submit-btn:disabled { background: #aaa; box-shadow: none; cursor: not-allowed; }
+  .submit-btn:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(26,107,60,0.35); }
+  .submit-note { text-align: center; font-size: 0.7rem; color: #889; margin-top: 10px; line-height: 1.5; }
+
+  .loading {
+    display: none;
+    text-align: center;
+    padding: 10px 0 15px;
+    color: var(--green);
+    font-size: 0.82rem;
+  }
+  .spinner {
+    width: 28px; height: 28px;
+    border: 3px solid #e0ede6;
+    border-top-color: var(--green);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 8px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .error-box {
+    display: none;
+    background: #fff5f5;
+    border: 1.5px solid var(--red);
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--red);
+    text-align: center;
+  }
+
+  /* Success */
+  .success-screen {
+    display: none;
+    width: 93%;
+    max-width: 500px;
+    margin-top: 30px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 36px 22px;
+    text-align: center;
+    box-shadow: 0 4px 24px rgba(15,35,24,0.13);
+    animation: slideUp 0.4s ease;
+  }
+  .success-icon { font-size: 3.2rem; margin-bottom: 10px; }
+  .success-screen h2 {
+    font-family: 'Tiro Bangla', serif;
+    color: var(--green);
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+  }
+  .success-screen p { color: #556; font-size: 0.82rem; line-height: 1.6; }
+
+  .vote-receipt {
+    background: var(--light-green);
+    border: 1.5px dashed var(--green);
+    border-radius: 10px;
+    padding: 14px;
+    margin: 16px 0;
+    text-align: left;
+  }
+  .receipt-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .vote-receipt .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 7px;
+    font-size: 0.78rem;
+    gap: 10px;
+  }
+  .vote-receipt .row:last-child { margin-bottom: 0; }
+  .vote-receipt .label { color: #667; flex-shrink: 0; }
+  .vote-receipt .value { font-weight: 700; color: var(--dark); text-align: right; }
+  .divider { border: none; border-top: 1px dashed #c8e0d0; margin: 8px 0; }
+
+  .footer {
+    text-align: center;
+    font-size: 0.65rem;
+    color: #bbb;
+    margin-top: 16px;
+    padding: 0 20px;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<!-- Banner -->
+<div class="banner">
+  <span class="banner-icon">🗳️</span>
+  <div class="school-name">বীর বিক্রম জয়নাল আবেদীন উচ্চ বিদ্যালয়</div>
+  <div class="org-name">প্রাক্তন ছাত্র কল্যাণ পরিষদ</div>
+  <div class="election-title">কার্যকরী কমিটি নির্বাচন ২০২৬</div>
+  <div class="badge">অফিশিয়াল ভোটিং ফর্ম — ডেমো</div>
+</div>
+
+<!-- Form Card -->
+<div class="card" id="formCard">
+
+  <div class="card-top">
+    <h2>📋 ভোটার তথ্য ও ভোট প্রদান ফর্ম</h2>
+    <p>নিচের তথ্য পূরণ করুন এবং তিনটি পদের জন্য আপনার পছন্দের প্রার্থী বেছে নিন। ভোট দিলে সাথে সাথে নির্বাচন পরিচালকের কাছে পৌঁছাবে।</p>
+  </div>
+
+  <div class="required-note">★ চিহ্নিত ঘরগুলো পূরণ করা আবশ্যক</div>
+
+  <!-- Voter Info -->
+  <div class="section">
+    <div class="section-title">👤 ভোটারের তথ্য</div>
+    <div class="field">
+      <label>পূর্ণ নাম <span class="req">★</span></label>
+      <input type="text" id="voterName" placeholder="আপনার পূর্ণ নাম লিখুন">
+    </div>
+    <div class="field">
+      <label>মোবাইল নম্বর <span class="req">★</span></label>
+      <input type="tel" id="voterPhone" placeholder="যেমন: 01XXXXXXXXX">
+    </div>
+    <div class="field">
+      <label>ভোটার আইডি নম্বর <span class="req">★</span></label>
+      <input type="text" id="voterId" placeholder="যেমন: PCM-001">
+    </div>
+    <div class="field">
+      <label>পাশের সাল</label>
+      <input type="text" id="passYear" placeholder="যেমন: ২০০৫">
+    </div>
+  </div>
+
+  <!-- Position 1: সভাপতি -->
+  <div class="position-section">
+    <div class="position-header">
+      <div class="position-icon pos-1">🏅</div>
+      <div class="position-title">সভাপতি পদ <span style="color:var(--red)">★</span></div>
+    </div>
+    <div class="position-sub">একজন প্রার্থী বেছে নিন</div>
+
+    <div class="candidate-option">
+      <input type="radio" name="president" id="p1" value="করিম (সভাপতি)">
+      <label class="candidate-label" for="p1">
+        <div class="radio-circle"></div>
+        <div class="candidate-avatar av-green">ক</div>
+        <div class="candidate-info">
+          <div class="name">করিম</div>
+          <div class="detail">প্রার্থী — সভাপতি পদ</div>
+        </div>
+        <div class="candidate-num num-green">প্রার্থী ১</div>
+      </label>
+    </div>
+
+    <div class="candidate-option">
+      <input type="radio" name="president" id="p2" value="রহিম (সভাপতি)">
+      <label class="candidate-label" for="p2">
+        <div class="radio-circle"></div>
+        <div class="candidate-avatar av-teal">র</div>
+        <div class="candidate-info">
+          <div class="name">রহিম</div>
+          <div class="detail">প্রার্থী — সভাপতি পদ</div>
+        </div>
+        <div class="candidate-num num-green">প্রার্থী ২</div>
+      </label>
+    </div>
+
+    <div class="candidate-option">
+      <input type="radio" name="president" id="p3" value="কোভিদ (সভাপতি)">
+      <label class="candidate-label" for="p3">
+        <div class="radio-circle"></div>
+        <div class="candidate-avatar av-orange">কো</div>
+        <div class="candidate-info">
+          <div class="name">কোভিদ</div>
+          <div class="detail">প্রার্থী — সভাপতি পদ</div>
+        </div>
+        <div class="candidate-num num-green">প্রার্থী ৩</div>
+      </label>
+    </div>
+  </div>
+
+  <!-- Position 2: সাধারণ সম্পাদক -->
+  <div class="position-section pos-2-section">
+    <div class="position-header">
+      <div class="position-icon pos-2">📝</div>
+      <div class="position-title">সাধারণ সম্পাদক পদ <span style="color:var(--red)">★</span></div>
+    </div>
+    <div class="position-sub">একজন প্রার্থী বেছে নিন</div>
+
+    <div class="candidate-option">
+      <input type="radio" name="secretary" id="s1" value="করিম (সাধারণ সম্পাদক)">
+      <label class="candidate-label" for="s1">
+        <div class="radio-circle"></div>
+        <div class="candidate-avatar av-blue">ক</div>
+        <div class="candidate-info">
+          <div class="name">করিম</div>
+          <div class="detail">প্রার্থী — সাধারণ সম্পাদক পদ</div>
+        </div>
+        <div class="candidate-num num-blue">প্রার্থী ১</div>
+      </label>
+    </div>
+
+    <div class="candidate-option">
+      <input type="radio" name="secretary" id="s2" value="রহিম (সাধারণ সম্পাদক)">
+      <label class="candidate-label" for="s2">
+        <div class="radio-circle"></div>
+        <div class="candidate-avatar av-navy">র</div>
+        <div class="candidate-info">
+          <div class="name">রহিম</div>
+          <div class="detail">প্রার্থী — সাধারণ সম্পাদক পদ</div>
+        </div>
+        <div class="candidate-num num-blue">প্রার্থী ২</div>
+      </label>
+    </div>
+
+    <div class="candidate-option">
+      <input type="radio" name="secretary" id="s3" value="কোভিদ (সাধারণ সম্পাদক)">
+      <label class="candidate-label" for="s3">
+        <div class="radio-circle"></div>
+        <div class="candidate-avatar av-dark">কো</div>
+        <div class="candidate-info">
+          <div class="name">কোভিদ</div>
+          <div class="detail">প্রার্থী — সাধারণ সম্পাদক পদ</div>
+        </div>
+        <div class="candidate-num num-blue">প্রার্থী ৩</div>
+      </label>
+    </div>
+  </div>
+
+  <!-- Position 3: সাংগঠনিক সম্পাদক -->
+  <div class="position-section pos-3-section">
+    <div class="position-header">
+      <div class="position-icon pos-3">🤝</div>
+      <div class="position-title">সাংগঠনিক সম্পাদক পদ <span style="color:var(--red)">★</span></div>
+    </div>
+    <div class="position-sub">একজন প্রার্থী বেছে নিন</div>
+
+    <div class="candidate-option">
+      <input type="radio" name="organizer" id="o1" value="করিম (সাংগঠনিক সম্পাদক)">
+      <label class="candidate-label" for="o1">
+        <div class="radio-circle"></div>
+        <div class="candidate-avatar av-purple">ক</div>
+        <div class="candidate-info">
+          <div class="name">করিম</div>
+          <div class="detail">প্রার্থী — সাংগঠনিক সম্পাদক পদ</div>
+        </div>
+        <div class="candidate-num num-purple">প্রার্থী ১</div>
+      </label>
+    </div>
+
+    <div class="candidate-option">
+      <input type="radio" name="organizer" id="o2" value="রহিম (সাংগঠনিক সম্পাদক)">
+      <label class="candidate-label" for="o2">
+        <div class="radio-circle"></div>
+        <div class="candidate-avatar av-maroon">র</div>
+        <div class="candidate-info">
+          <div class="name">রহিম</div>
+          <div class="detail">প্রার্থী — সাংগঠনিক সম্পাদক পদ</div>
+        </div>
+        <div class="candidate-num num-purple">প্রার্থী ২</div>
+      </label>
+    </div>
+
+    <div class="candidate-option">
+      <input type="radio" name="organizer" id="o3" value="কোভিদ (সাংগঠনিক সম্পাদক)">
+      <label class="candidate-label" for="o3">
+        <div class="radio-circle"></div>
+        <div class="candidate-avatar av-red">কো</div>
+        <div class="candidate-info">
+          <div class="name">কোভিদ</div>
+          <div class="detail">প্রার্থী — সাংগঠনিক সম্পাদক পদ</div>
+        </div>
+        <div class="candidate-num num-purple">প্রার্থী ৩</div>
+      </label>
+    </div>
+  </div>
+
+  <!-- Submit -->
+  <div class="submit-section">
+    <div class="loading" id="loadingDiv">
+      <div class="spinner"></div>
+      ভোট পাঠানো হচ্ছে...
+    </div>
+    <button class="submit-btn" id="submitBtn" onclick="submitVote()">✅ ভোট প্রদান করুন</button>
+    <div class="error-box" id="errorBox">⚠️ ভোট পাঠাতে সমস্যা হয়েছে। ইন্টারনেট সংযোগ চেক করে আবার চেষ্টা করুন।</div>
+    <p class="submit-note">⚠️ একবার ভোট Submit করলে পরিবর্তন করা যাবে না<br>তিনটি পদের জন্যই ভোট দেওয়া আবশ্যক</p>
+  </div>
+</div>
+
+<!-- Success Screen -->
+<div class="success-screen" id="successScreen">
+  <div class="success-icon">✅</div>
+  <h2>ভোট সফলভাবে গৃহীত হয়েছে!</h2>
+  <p>আপনার মূল্যবান ভোটের জন্য আন্তরিক ধন্যবাদ।<br>নির্বাচনের ফলাফল যথাসময়ে ঘোষণা করা হবে।</p>
+
+  <div class="vote-receipt">
+    <div class="receipt-title">🧾 ভোটের রসিদ</div>
+    <div class="row"><span class="label">ভোটারের নাম</span><span class="value" id="rName">—</span></div>
+    <div class="row"><span class="label">মোবাইল</span><span class="value" id="rPhone">—</span></div>
+    <div class="row"><span class="label">ভোটার আইডি</span><span class="value" id="rId">—</span></div>
+    <hr class="divider">
+    <div class="row"><span class="label">🏅 সভাপতি</span><span class="value" id="rPresident">—</span></div>
+    <div class="row"><span class="label">📝 সাধারণ সম্পাদক</span><span class="value" id="rSecretary">—</span></div>
+    <div class="row"><span class="label">🤝 সাংগঠনিক সম্পাদক</span><span class="value" id="rOrganizer">—</span></div>
+    <hr class="divider">
+    <div class="row"><span class="label">সময়</span><span class="value" id="rTime">—</span></div>
+  </div>
+  <p style="font-size:0.73rem; color:#889;">📸 এই রসিদটির স্ক্রিনশট নিয়ে রাখুন</p>
+</div>
+
+<div class="footer">
+  প্রাক্তন ছাত্র কল্যাণ পরিষদ<br>
+  বীর বিক্রম জয়নাল আবেদীন উচ্চ বিদ্যালয়<br>
+  কার্যকরী কমিটি নির্বাচন ২০২৬ — ডেমো সংস্করণ
+</div>
+
+<script>
+  const BOT_TOKEN = '8670730060:AAH6od4pU_7ButcUclpRTtAVuXy16ewb0Ew';
+  const CHAT_ID = '6247127680';
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzLMHId3Lb8UuRJK8DT4iqyKwekRVPSUVtqnIA3GaLZdNAdBBqYe52kPiLBpGJfI9dgLg/exec';
+
+  async function submitVote() {
+    const name = document.getElementById('voterName').value.trim();
+    const phone = document.getElementById('voterPhone').value.trim();
+    const voterId = document.getElementById('voterId').value.trim();
+    const passYear = document.getElementById('passYear').value.trim() || 'উল্লেখ নেই';
+
+    const president = document.querySelector('input[name="president"]:checked');
+    const secretary = document.querySelector('input[name="secretary"]:checked');
+    const organizer = document.querySelector('input[name="organizer"]:checked');
+
+    if (!name) { alert('অনুগ্রহ করে আপনার পূর্ণ নাম লিখুন।'); return; }
+    if (!phone) { alert('অনুগ্রহ করে মোবাইল নম্বর দিন।'); return; }
+    if (!voterId) { alert('অনুগ্রহ করে ভোটার আইডি নম্বর দিন।'); return; }
+    if (!president) { alert('অনুগ্রহ করে সভাপতি পদের জন্য একজন প্রার্থী বেছে নিন।'); return; }
+    if (!secretary) { alert('অনুগ্রহ করে সাধারণ সম্পাদক পদের জন্য একজন প্রার্থী বেছে নিন।'); return; }
+    if (!organizer) { alert('অনুগ্রহ করে সাংগঠনিক সম্পাদক পদের জন্য একজন প্রার্থী বেছে নিন।'); return; }
+
+    const now = new Date();
+    const timeStr = now.toLocaleString('bn-BD', { dateStyle: 'long', timeStyle: 'short' });
+
+    document.getElementById('submitBtn').style.display = 'none';
+    document.getElementById('loadingDiv').style.display = 'block';
+    document.getElementById('errorBox').style.display = 'none';
+
+    const presidentName = president.value.replace(' (সভাপতি)', '');
+    const secretaryName = secretary.value.replace(' (সাধারণ সম্পাদক)', '');
+    const organizerName = organizer.value.replace(' (সাংগঠনিক সম্পাদক)', '');
+
+    const voteData = {
+      name, phone, voterId, passYear,
+      president: presidentName,
+      secretary: secretaryName,
+      organizer: organizerName
+    };
+
+    const telegramMsg = `
+🗳️ *নতুন ভোট প্রাপ্ত!*
+━━━━━━━━━━━━━━━━━━
+🏫 *প্রাক্তন ছাত্র কল্যাণ পরিষদ*
+বীর বিক্রম জয়নাল আবেদীন উচ্চ বিদ্যালয়
+━━━━━━━━━━━━━━━━━━
+👤 *নাম:* ${name}
+📱 *মোবাইল:* ${phone}
+🪪 *ভোটার আইডি:* ${voterId}
+🎓 *পাশের সাল:* ${passYear}
+━━━━━━━━━━━━━━━━━━
+🏅 *সভাপতি:* ${presidentName}
+📝 *সাধারণ সম্পাদক:* ${secretaryName}
+🤝 *সাংগঠনিক সম্পাদক:* ${organizerName}
+━━━━━━━━━━━━━━━━━━
+🕐 *সময়:* ${timeStr}
+    `;
+
+    try {
+      // Google Sheet এ পাঠান
+      const sheetPromise = fetch(SHEET_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify(voteData)
+      });
+
+      // Telegram এ পাঠান
+      const telegramPromise = fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: CHAT_ID,
+          text: telegramMsg,
+          parse_mode: 'Markdown'
+        })
+      });
+
+      // দুটো একসাথে পাঠান
+      await Promise.all([sheetPromise, telegramPromise]).catch(()=>{});
+
+      if (true) {
+        document.getElementById('rName').textContent = name;
+        document.getElementById('rPhone').textContent = phone;
+        document.getElementById('rId').textContent = voterId;
+        document.getElementById('rPresident').textContent = presidentName;
+        document.getElementById('rSecretary').textContent = secretaryName;
+        document.getElementById('rOrganizer').textContent = organizerName;
+        document.getElementById('rTime').textContent = timeStr;
+
+        document.getElementById('formCard').style.display = 'none';
+        document.getElementById('successScreen').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        throw new Error('error');
+      }
+    } catch (err) {
+      document.getElementById('loadingDiv').style.display = 'none';
+      document.getElementById('submitBtn').style.display = 'block';
+      document.getElementById('errorBox').style.display = 'block';
+    }
+  }
+</script>
+
+</body>
+</html>
